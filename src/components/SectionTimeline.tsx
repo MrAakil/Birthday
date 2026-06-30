@@ -9,7 +9,8 @@ export default function SectionTimeline() {
   // Icon mapper helper
   const renderIcon = (name: string) => {
     const iconClass = "w-5 h-5 text-purple-400";
-    switch (name) {
+    const key = name.toLowerCase().trim();
+    switch (key) {
       case "coffee": return <LucideIcons.Coffee className={iconClass} />;
       case "compass": return <LucideIcons.Compass className={iconClass} />;
       case "star": return <LucideIcons.Star className={iconClass} />;
@@ -17,6 +18,9 @@ export default function SectionTimeline() {
       case "gift": return <LucideIcons.Gift className={iconClass} />;
       case "camera": return <LucideIcons.Camera className={iconClass} />;
       case "heart": return <LucideIcons.Heart className={iconClass} />;
+      case "whatsapp": return <LucideIcons.MessageCircle className={iconClass} />;
+      case "first meet": return <LucideIcons.Users className={iconClass} />;
+      case "date": return <LucideIcons.Calendar className={iconClass} />;
       default: return <LucideIcons.Sparkles className={iconClass} />;
     }
   };

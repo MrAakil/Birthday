@@ -12,7 +12,7 @@ export interface TimelineEntry {
   title: string;
   description: string;
   imageUrl?: string;
-  iconName: 'heart' | 'camera' | 'compass' | 'coffee' | 'music' | 'gift' | 'sparkles' | 'star';
+  iconName: string;
 }
 
 export interface SyncedLyric {
