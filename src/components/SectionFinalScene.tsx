@@ -112,10 +112,21 @@ export default function SectionFinalScene({ onReplay }: SectionFinalSceneProps) 
         {birthdayConfig.reasons.map((star) => {
           const isActive = activeStarId === star.id;
 
+          // Compute tooltip alignment classes based on screen boundaries to prevent clipping
+          const tooltipXClass = star.x > 80 
+            ? "right-0 translate-x-0 left-auto" 
+            : star.x < 20 
+            ? "left-0 translate-x-0" 
+            : "left-1/2 -translate-x-1/2";
+
+          const tooltipYClass = star.y < 25 
+            ? "top-8" 
+            : "bottom-8";
+
           return (
             <div
               key={star.id}
-              className="absolute"
+              className="absolute z-20"
               style={{ left: `${star.x}%`, top: `${star.y}%` }}
             >
               <button
@@ -146,32 +157,30 @@ export default function SectionFinalScene({ onReplay }: SectionFinalSceneProps) 
                   }`}
                 />
               </button>
+
+              {/* Floating Tooltip Near Star */}
+              <AnimatePresence>
+                {isActive && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8, y: star.y < 25 ? 10 : -10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    transition={{ type: "spring", stiffness: 350, damping: 25 }}
+                    className={`absolute p-4 rounded-2xl bg-slate-900/90 backdrop-blur-md border border-purple-500/25 text-slate-100 shadow-[0_12px_30px_rgba(0,0,0,0.6)] w-[220px] text-center pointer-events-auto z-30 ${tooltipXClass} ${tooltipYClass}`}
+                  >
+                    <div className="flex items-center justify-center gap-1 mb-1.5 text-pink-400 select-none">
+                      <Heart className="w-3.5 h-3.5 fill-pink-400" />
+                      <span className="text-[10px] uppercase font-bold tracking-wider">Reason {star.id}</span>
+                    </div>
+                    <p className="text-xs font-light leading-relaxed select-text">
+                      {star.text}
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           );
         })}
-
-        {/* Center: Active Star Text Overlay Dialog */}
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <AnimatePresence mode="wait">
-            {activeStarId && activeStarText && (
-              <motion.div
-                key={activeStarId}
-                initial={{ opacity: 0, scale: 0.85, y: 15 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.85, y: -15 }}
-                className="pointer-events-auto bg-slate-950/60 backdrop-blur-md border border-white/10 rounded-2xl py-4 px-6 max-w-sm text-center shadow-[0_15px_35px_rgba(0,0,0,0.4)]"
-              >
-                <div className="flex justify-center gap-1.5 mb-2 text-pink-400">
-                  <Heart className="w-4 h-4 fill-pink-400" />
-                  <span className="text-xs uppercase font-semibold tracking-wider">Reason {activeStarId}</span>
-                </div>
-                <p className="text-slate-100 font-light text-sm md:text-base leading-relaxed">
-                  {activeStarText}
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
       </div>
 
       {/* Bottom Section: Sign off & Replay */}

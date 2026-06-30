@@ -31,12 +31,12 @@ export interface BirthdayConfig {
   recipientName: string;
   nickname: string;
   magicWord: string; // The secret lock word to unlock the surprise
-  
+
   // Audio settings
   musicUrl: string; // URL of the background birthday/favorite song (MP3)
   musicVolume: number; // Between 0.0 and 1.0
   lyrics: SyncedLyric[];
-  
+
   // Theme & Visual styling
   theme: {
     primaryColor: string; // tailwind color configuration classes (e.g. from-indigo-500 to-purple-600)
@@ -92,7 +92,7 @@ export const birthdayConfig: BirthdayConfig = {
   recipientName: "Meena Banu",
   nickname: "Meena Banu ❤️",
   magicWord: "forever", // Type 'forever' (or anything) to unlock the secret path
-  
+
   // Audio Configuration
   // We use a high-quality royalty-free ambient piano track for the background experience
   musicUrl: "/dude-orchestral-suite.mp3",
@@ -127,11 +127,11 @@ export const birthdayConfig: BirthdayConfig = {
     {
       id: "color",
       question: "Which color speaks to your soul the most?",
-      options: ["Ocean Blue", "Midnight Violet", "Forest Green", "Sunset Crimson"]
+      options: ["Sky Blue", "Midnight Violet", "Forest Green", "Sunset Crimson"]
     },
     {
       id: "drink",
-      question: "If we were in a cozy cafe right now, what are we ordering?",
+      question: "If we were in a cafe right now, what are we ordering?",
       options: ["Hot Brewed Coffee", "Matcha Latte", "Warm Chamomile Tea", "Rich Hot Chocolate"]
     },
     {
@@ -153,7 +153,7 @@ export const birthdayConfig: BirthdayConfig = {
 
   // Step 3: Guess the Occasion
   occasionOptions: [
-    "International Pizza Day 🍕",
+    "July 1st",
     "Meena Banu's Birthday! 🎉",
     "National Sleep-In Day 😴",
     "Launch Day of a Spaceship 🚀"
@@ -196,34 +196,34 @@ export const birthdayConfig: BirthdayConfig = {
   // Step 9: Memory Timeline
   timeline: [
     {
-      date: "January 15",
-      title: "The First Coffee",
-      description: "Remember where it all started? A simple coffee that turned into hours of endless laughter.",
-      iconName: "coffee"
+      date: "September 29, 2023",
+      title: "The First Time You Came To My Life",
+      description: "That day I knew my life was going to change forever.",
+      iconName: "First Meet"
     },
     {
-      date: "April 3",
-      title: "Lost in the Mountains",
-      description: "Taking the wrong turn, walking in circles under the rain, yet somehow it was the highlight of our spring.",
-      iconName: "compass"
+      date: "November 14, 2023",
+      title: "First time we talk in whatsapp call",
+      description: "I was so nervous to talk to you, but I'm so glad I did.",
+      iconName: "whatsapp"
     },
     {
-      date: "August 24",
-      title: "Midnight Stargazing",
-      description: "Lying down on the hood of the car, watching shooting stars and wishing for moments that never end.",
-      iconName: "star"
+      date: "October 26, 2023",
+      title: "Our First Physical Meet",
+      description: "It was My Birthday,That you got me gifts to me, I was so happy to see you near me.",
+      iconName: "heart"
     },
     {
-      date: "October 10",
-      title: "The Unexpected Concert",
-      description: "Singing along at the top of our lungs to songs we barely knew, surrounded by neon lights and crowd noise.",
-      iconName: "music"
+      date: "February 12, 2024",
+      title: "Letter",
+      description: "You Wrote a letter to Me. That was very special for me.",
+      iconName: "Gift"
     },
     {
-      date: "December 25",
-      title: "Cozy Holiday Cook-off",
-      description: "Our attempt at baking the perfect holiday pie that collapsed, but we ate the warm crumbs anyway.",
-      iconName: "gift"
+      date: "March 29, 2026",
+      title: "Our First Date",
+      description: "I Touched you, I kissed You and I hug You, I will never forget that in my life",
+      iconName: "Date"
     }
   ],
 

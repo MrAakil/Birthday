@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
 import { birthdayConfig } from "@/config/birthday";
 
@@ -113,6 +113,20 @@ function Cake({ blown }: CakeProps) {
         <cylinderGeometry args={[1.1, 1.1, 0.7, 48]} />
         <meshStandardMaterial color={cfg.icingColor} roughness={0.3} />
       </mesh>
+
+      {/* Icing Lettering flat on Top of Cake */}
+      <Html
+        position={[0, 0.46, 0]} // flat on the top surface of the cake
+        rotation={[-Math.PI / 2, 0, 0]} // rotated -90 degrees on X-axis to lie flat
+        transform // aligns it within WebGL 3D coordinate space
+        distanceFactor={0.42} // smaller factor makes it render significantly larger
+        className="select-none pointer-events-none"
+      >
+        <div className="font-serif text-2xl md:text-3xl tracking-wider text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.75)] font-bold text-center flex flex-col items-center select-none uppercase">
+          <span>Happy Birthday</span>
+          <span className="text-yellow-300 text-3xl md:text-4xl mt-1">Meenu ma</span>
+        </div>
+      </Html>
 
       {/* 5. Candles & Flames */}
       {candlePositions.map((pos, idx) => (
