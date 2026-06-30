@@ -276,7 +276,7 @@ export default function SectionCake3D() {
                   className="text-sm text-green-400 font-semibold flex items-center gap-1.5"
                 >
                   <Sparkles className="w-4 h-4 text-yellow-400 animate-bounce" />
-                  Happy Birthday Aakil! May all your wishes come true! 🎉💖
+                  Happy Birthday {birthdayConfig.recipientName}! May all your wishes come true! 🎉💖
                 </motion.span>
               )}
             </AnimatePresence>

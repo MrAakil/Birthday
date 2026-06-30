@@ -89,8 +89,8 @@ export interface BirthdayConfig {
 }
 
 export const birthdayConfig: BirthdayConfig = {
-  recipientName: "Aakil",
-  nickname: "Aakil ❤️",
+  recipientName: "Meena Banu",
+  nickname: "Meena Banu ❤️",
   magicWord: "forever", // Type 'forever' (or anything) to unlock the secret path
   
   // Audio Configuration
@@ -106,7 +106,7 @@ export const birthdayConfig: BirthdayConfig = {
     { time: 28, text: "Through every laugh, every adventure, and every quiet moment..." },
     { time: 35, text: "You make the ordinary feel extraordinary..." },
     { time: 42, text: "So blow the candles, make a wish, and let it fly..." },
-    { time: 49, text: "Happy Birthday, Aakil, today and forevermore. ❤️" }
+    { time: 49, text: "Happy Birthday, Meena Banu, today and forevermore. ❤️" }
   ],
 
   // Theme & Visual Configuration
@@ -154,11 +154,11 @@ export const birthdayConfig: BirthdayConfig = {
   // Step 3: Guess the Occasion
   occasionOptions: [
     "International Pizza Day 🍕",
-    "Aakil's Birthday! 🎉",
+    "Meena Banu's Birthday! 🎉",
     "National Sleep-In Day 😴",
     "Launch Day of a Spaceship 🚀"
   ],
-  correctOccasion: "Aakil's Birthday! 🎉",
+  correctOccasion: "Meena Banu's Birthday! 🎉",
 
   // Step 5: Preparing the Surprise Messages
   loadingMessages: [
@@ -181,7 +181,7 @@ export const birthdayConfig: BirthdayConfig = {
   ],
 
   // Step 6: Birthday Intro Letter/Message
-  birthdayMessage: "Happy Birthday, Aakil! Today is all about celebrating the incredible light you bring into the lives of everyone around you. Thank you for your warmth, your laughter, and for being the wonderful person that you are. Let's take a journey down memory lane...",
+  birthdayMessage: "Happy Birthday, Meena Banu! Today is all about celebrating the incredible light you bring into the lives of everyone around you. Thank you for your warmth, your laughter, and for being the wonderful person that you are. Let's take a journey down memory lane...",
 
   // Step 7: 3D Cake Config
   cakeConfig: {
@@ -232,7 +232,7 @@ export const birthdayConfig: BirthdayConfig = {
     envelopeColor: "#4f46e5", // Indigo
     letterBgColor: "#fdfefe", // Elegant soft-white
     textColor: "#1f2937", // Slate gray
-    heading: "Dearest Aakil,",
+    heading: "Dearest Meena Banu,",
     paragraphs: [
       "I wanted to write you something that you can keep, a little digital home for my thoughts and wishes on your special day.",
       "You have an extraordinary gift: you make everyone feel safe, heard, and deeply valued. Your passion is infectious, and your kindness is a quiet force that makes the world a warmer place. Every single day with you is a gift, and I am so grateful to share this journey with you.",
@@ -243,7 +243,7 @@ export const birthdayConfig: BirthdayConfig = {
   },
 
   // Step 11: Final Starry Sky Reasons
-  // These stars represent personal reasons why Aakil is special
+  // These stars represent personal reasons why Meena Banu is special
   reasons: [
     { id: 1, text: "Your smile instantly brightens up any room.", x: 25, y: 30 },
     { id: 2, text: "You are incredibly patient, kind, and supportive.", x: 45, y: 15 },

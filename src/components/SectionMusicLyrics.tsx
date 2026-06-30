@@ -138,7 +138,7 @@ export default function SectionMusicLyrics() {
           </div>
 
           <h3 className="text-xl font-light text-white tracking-wider mt-6">
-            Aakil&apos;s Theme
+            {birthdayConfig.recipientName}&apos;s Theme
           </h3>
           <p className="text-xs text-slate-500 uppercase tracking-widest mt-1">
             Tap play to sync the lyrics
