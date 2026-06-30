@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+@theme {
+  --font-serif: var(--font-playfair);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Hide scrollbar utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Premium styled custom viewport scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #03000a;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.15); /* light purple trans */
+  border-radius: 999px;
+  border: 2px solid #03000a;
+  transition: background 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.35); /* bright purple trans */
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #03000a;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, sans-serif;
+  background-color: #03000a;
+  color: #f8fafc;
+  overflow-x: hidden;
+}
+
+/* Custom Serif heading override */
+h1, h2, h3, .font-serif {
+  font-family: var(--font-playfair), Georgia, serif;
 }

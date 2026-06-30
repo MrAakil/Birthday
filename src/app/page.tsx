@@ -1,65 +1,131 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { AudioProvider } from "@/components/AudioController";
+import CanvasBackground from "@/components/CanvasBackground";
+
+// Import pre-reveal components
+import StepIntro from "@/components/StepIntro";
+import StepQuestions from "@/components/StepQuestions";
+import StepOccasion from "@/components/StepOccasion";
+import StepSecretLock from "@/components/StepSecretLock";
+import StepLoading from "@/components/StepLoading";
+
+// Import celebration container
+import CelebrationContainer from "@/components/CelebrationContainer";
+
+function SurpriseApp() {
+  const [step, setStep] = useState<number>(1);
+
+  // Read step from localStorage on mount (optional, to keep user place, but for birthday replay, starting at 1 is standard. Let's start at 1.)
+  useEffect(() => {
+    // Make sure page starts at top
+    window.scrollTo(0, 0);
+  }, [step]);
+
+  const handleNextStep = () => {
+    setStep((prev) => prev + 1);
+  };
+
+  const handleReplay = () => {
+    // Clear local preferences if needed, or keep them
+    // For a complete fresh experience, reset to step 1
+    setStep(1);
+  };
+
+  return (
+    <main className="relative min-h-screen w-full bg-slate-950 overflow-hidden selection:bg-purple-500/30 selection:text-purple-200">
+      {/* 1. Starry and glowing background rendered globally */}
+      <CanvasBackground />
+
+      {/* 2. Page coordinate navigation states */}
+      <AnimatePresence mode="wait">
+        {step === 1 && (
+          <motion.div
+            key="step1"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, filter: "blur(8px)" }}
+            transition={{ duration: 0.8 }}
+            className="w-full min-h-screen"
+          >
+            <StepIntro onComplete={handleNextStep} />
+          </motion.div>
+        )}
+
+        {step === 2 && (
+          <motion.div
+            key="step2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, filter: "blur(8px)" }}
+            transition={{ duration: 0.5 }}
+            className="w-full min-h-screen"
+          >
+            <StepQuestions onComplete={handleNextStep} />
+          </motion.div>
+        )}
+
+        {step === 3 && (
+          <motion.div
+            key="step3"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, filter: "blur(8px)" }}
+            transition={{ duration: 0.5 }}
+            className="w-full min-h-screen"
+          >
+            <StepOccasion onComplete={handleNextStep} />
+          </motion.div>
+        )}
+
+        {step === 4 && (
+          <motion.div
+            key="step4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, filter: "blur(8px)" }}
+            transition={{ duration: 0.5 }}
+            className="w-full min-h-screen"
+          >
+            <StepSecretLock onComplete={handleNextStep} />
+          </motion.div>
+        )}
+
+        {step === 5 && (
+          <motion.div
+            key="step5"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-full min-h-screen"
+          >
+            <StepLoading onComplete={handleNextStep} />
+          </motion.div>
+        )}
+
+        {step === 6 && (
+          <motion.div
+            key="celebration"
+            initial={{ opacity: 0, filter: "blur(12px)" }}
+            animate={{ opacity: 1, filter: "blur(0px)" }}
+            transition={{ duration: 1.8, ease: "easeOut" }}
+            className="w-full min-h-screen"
+          >
+            <CelebrationContainer onReplay={handleReplay} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </main>
+  );
+}
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <AudioProvider>
+      <SurpriseApp />
+    </AudioProvider>
   );
 }
